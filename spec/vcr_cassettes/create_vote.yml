@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.liquidvoting.io/
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation LiquidVotingApi__Client__CreateVoteMutation($voter_email:
+        String, $proposal_url: String!, $yes: Boolean!) {\n  createVote(participantEmail:
+        $voter_email, proposalUrl: $proposal_url, yes: $yes) {\n    participant {\n      email\n    }\n    yes\n    votingResult
+        {\n      yes\n      no\n    }\n  }\n}","variables":{"yes":true,"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__CreateVoteMutation"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 62309201-d2f0-407f-875b-9f836f94f2ca
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.17.8
+      Date:
+      - Mon, 25 May 2020 16:49:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '109'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - FhJTc5Pn7aFKFlYAAANB, 719a4a58ced9ea248ec9c689aaf0e426
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":{"createVote":{"participant":{"email":"alice@test.com"},"votingResult":{"no":0,"yes":1},"yes":true}}}'
+    http_version: null
+  recorded_at: Mon, 25 May 2020 16:49:34 GMT
+recorded_with: VCR 5.1.0
