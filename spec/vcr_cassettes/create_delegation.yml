@@ -5,10 +5,10 @@ http_interactions:
     uri: https://api.liquidvoting.io/
     body:
       encoding: UTF-8
-      string: '{"query":"mutation LiquidVotingApi__Client__CreateVoteMutation($voter_email:
-        String, $proposal_url: String!, $yes: Boolean!) {\n  createVote(participantEmail:
-        $voter_email, proposalUrl: $proposal_url, yes: $yes) {\n    yes\n    weight\n    participant
-        {\n      email\n    }\n    votingResult {\n      yes\n      no\n    }\n  }\n}","variables":{"yes":true,"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__CreateVoteMutation"}'
+      string: '{"query":"mutation LiquidVotingApi__Client__CreateDelegationMutation($proposal_url:
+        String!, $delegator_email: String!, $delegate_email: String!) {\n  createDelegation(proposalUrl:
+        $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email)
+        {\n    id\n  }\n}","variables":{"proposal_url":"http://proposals.com/1","delegator_email":"bob@test.com","delegate_email":"bob@test.com"},"operationName":"LiquidVotingApi__Client__CreateDelegationMutation"}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -28,22 +28,22 @@ http_interactions:
       Server:
       - nginx/1.17.8
       Date:
-      - Tue, 26 May 2020 11:06:25 GMT
+      - Tue, 26 May 2020 11:15:57 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '120'
+      - '41'
       Connection:
       - keep-alive
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - FhKPToSp9irbT3IAAAOx, ee6b88d3fdc874ca3829557b70e4ef57
+      - FhKP046YLiVE7qoAAAPR, deb2b1939f102a21bdff078913160156
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"data":{"createVote":{"participant":{"email":"alice@test.com"},"votingResult":{"no":0,"yes":1},"weight":1,"yes":true}}}'
+      string: '{"data":{"createDelegation":{"id":"13"}}}'
     http_version: null
-  recorded_at: Tue, 26 May 2020 11:06:25 GMT
+  recorded_at: Tue, 26 May 2020 11:15:57 GMT
 recorded_with: VCR 5.1.0

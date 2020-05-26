@@ -21,6 +21,10 @@ module LiquidVotingApi
       mutation($voter_email: String, $proposal_url: String!, $yes: Boolean!) {
         createVote(participantEmail: $voter_email, proposalUrl: $proposal_url, yes: $yes) {
           yes
+          weight
+          participant {
+            email
+          }
           votingResult {
             yes
             no
@@ -46,6 +50,32 @@ module LiquidVotingApi
         raise response.errors[:data].join(", ")
       else
         response.data.create_vote
+      end
+    end
+
+    CreateDelegationMutation = CLIENT.parse <<-GRAPHQL
+      mutation($proposal_url: String!, $delegator_email: String!, $delegate_email: String!) {
+        createDelegation(proposalUrl: $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email) {
+          id
+        }
+      }
+
+    GRAPHQL
+
+    ## Example:
+    ##
+    ## create_delegation(proposal_url: "https://my.decidim.com/proposal", delegator_email: "bob@email.com", delegate_email: "alice@email.com")
+    ## => true
+    ##
+    ## On failure it will raise an exception with the errors returned by the API
+    def self.create_delegation(proposal_url:, delegator_email:, delegate_email:)
+      variables = { proposal_url: proposal_url, delegator_email: delegator_email, delegate_email: delegator_email }
+      response = CLIENT.query(CreateDelegationMutation, variables: variables)
+
+      if response.errors.any?
+        raise response.errors[:data].join(", ")
+      else
+        true
       end
     end
   end
