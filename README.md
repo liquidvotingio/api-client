@@ -1,5 +1,7 @@
 # liquidvoting.io ruby-client
 
+[![Actions Status](https://github.com/liquidvotingio/ruby-client/workflows/CI/CD/badge.svg)](https://github.com/liquidvotingio/ruby-client/actions?query=workflow%3ACI%2FCD)
+
 Ruby GraphQL client for liquidvoting.io
 
 ```ruby
