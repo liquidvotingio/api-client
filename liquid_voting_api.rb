@@ -6,11 +6,12 @@ require 'graphql/client/http'
 
 module LiquidVotingApi
   module Client
-    # Only way to configure this would be by env vars?
-    URL = "https://api.liquidvoting.io"
+    URL = ENV.fetch('LIQUID_VOTING_API_URL', 'https://api.liquidvoting.io')
+    AUTH_KEY = ENV.fetch('LIQUID_VOTING_API_AUTH_KEY', '62309201-d2f0-407f-875b-9f836f94f2ca')
+
     HTTP = GraphQL::Client::HTTP.new(URL) do
       def headers(context)
-        { "Authorization": "Bearer 62309201-d2f0-407f-875b-9f836f94f2ca" }
+        { "Authorization": "Bearer #{AUTH_KEY}" }
       end
     end
 

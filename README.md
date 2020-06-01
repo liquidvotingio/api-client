@@ -5,18 +5,23 @@
 Ruby GraphQL client for liquidvoting.io
 
 ```ruby
+ENV['LIQUID_VOTING_API_AUTH_KEY'] = '62309201-d2f0-407f-875b-9f836f94f2ca'
+ENV['LIQUID_VOTING_API_URL'] = 'https://api.liquidvoting.io'
+
+require_relative 'liquid_voting_api'
+
 alice_email = "alice@email.com"
 bob_email = "bob@email.com"
 proposal_url = "https://my.decidim.com/proposal"
 
-LiquidVoting::Client.create_delegation(
+LiquidVotingApi::Client.create_delegation(
   proposal_url: proposal_url,
   delegate_email: alice_email,
   delegator_email: bob_email
 )
 => true
 
-LiquidVoting::Client.create_vote(
+LiquidVotingApi::Client.create_vote(
   yes: true,
   proposal_url: proposal_url,
   voter_email: alice_email
