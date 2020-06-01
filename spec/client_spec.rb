@@ -34,4 +34,17 @@ describe LiquidVotingApi::Client do
       end
     end
   end
+
+  describe "#delete_delegation for a proposal" do
+    let(:alice_email) { "alice@test.com" }
+    let(:bob_email) { "bob@test.com" }
+
+    it "returns updated result" do
+      VCR.use_cassette('delete_delegation') do
+        deleted_delegation = described_class.delete_delegation(proposal_url: "http://proposals.com/1", delegator_email: bob_email, delegate_email: alice_email)
+        expect(deleted_delegation.voting_result.no).to eql 0
+        expect(deleted_delegation.voting_result.yes).to eql 0
+      end
+    end
+  end
 end

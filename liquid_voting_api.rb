@@ -78,5 +78,36 @@ module LiquidVotingApi
         true
       end
     end
+
+    DeleteDelegationMutation = CLIENT.parse <<-GRAPHQL
+      mutation($proposal_url: String!, $delegator_email: String!, $delegate_email: String!) {
+        deleteDelegation(proposalUrl: $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email) {
+          votingResult {
+            yes
+            no
+          }
+        }
+      }
+
+    GRAPHQL
+
+    ## Example:
+    ##
+    ## delete_delegation(proposal_url: "https://my.decidim.com/proposal", delegator_email: "bob@email.com", delegate_email: "alice@email.com")
+    ## => deleted_delegation
+    ## deleted_delegation.voting_result.yes => 0
+    ## deleted_delegation.voting_result.no => 0
+    ##
+    ## On failure it will raise an exception with the errors returned by the API
+    def self.delete_delegation(proposal_url:, delegator_email:, delegate_email:)
+      variables = { proposal_url: proposal_url, delegator_email: delegator_email, delegate_email: delegate_email }
+      response = CLIENT.query(DeleteDelegationMutation, variables: variables)
+
+      if response.errors.any?
+        raise response.errors[:data].join(", ")
+      else
+        response.data.delete_delegation
+      end
+    end
   end
 end
