@@ -70,7 +70,7 @@ module LiquidVotingApi
     ##
     ## On failure it will raise an exception with the errors returned by the API
     def self.create_delegation(proposal_url:, delegator_email:, delegate_email:)
-      variables = { proposal_url: proposal_url, delegator_email: delegator_email, delegate_email: delegator_email }
+      variables = { proposal_url: proposal_url, delegator_email: delegator_email, delegate_email: delegate_email }
       response = CLIENT.query(CreateDelegationMutation, variables: variables)
 
       if response.errors.any?
