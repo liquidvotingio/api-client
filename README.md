@@ -5,6 +5,7 @@
 Ruby GraphQL client for liquidvoting.io
 
 ```ruby
+# Demo auth key for live api. Demo data gets wiped out from time to time
 ENV['LIQUID_VOTING_API_AUTH_KEY'] = '62309201-d2f0-407f-875b-9f836f94f2ca'
 ENV['LIQUID_VOTING_API_URL'] = 'https://api.liquidvoting.io'
 

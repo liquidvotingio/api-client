@@ -19,7 +19,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 62309201-d2f0-407f-875b-9f836f94f2ca
+      - Bearer bc7eeccb-5e10-4004-8bfb-7fc68536bbd7
   response:
     status:
       code: 200
@@ -28,7 +28,7 @@ http_interactions:
       Server:
       - nginx/1.17.8
       Date:
-      - Tue, 26 May 2020 11:06:25 GMT
+      - Tue, 02 Jun 2020 13:39:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
@@ -38,12 +38,12 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - FhKPToSp9irbT3IAAAOx, ee6b88d3fdc874ca3829557b70e4ef57
+      - FhS9tuGYjmUghDoAAAER, b594f52b6b8556bb31b1095b11a86f30
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
       string: '{"data":{"createVote":{"participant":{"email":"alice@test.com"},"votingResult":{"no":0,"yes":1},"weight":1,"yes":true}}}'
     http_version: null
-  recorded_at: Tue, 26 May 2020 11:06:25 GMT
+  recorded_at: Tue, 02 Jun 2020 13:39:21 GMT
 recorded_with: VCR 5.1.0

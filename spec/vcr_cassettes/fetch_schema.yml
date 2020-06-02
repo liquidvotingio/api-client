@@ -29,7 +29,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Bearer 62309201-d2f0-407f-875b-9f836f94f2ca
+      - Bearer bc7eeccb-5e10-4004-8bfb-7fc68536bbd7
   response:
     status:
       code: 200
@@ -38,7 +38,7 @@ http_interactions:
       Server:
       - nginx/1.17.8
       Date:
-      - Mon, 01 Jun 2020 18:12:20 GMT
+      - Tue, 02 Jun 2020 13:39:21 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -50,7 +50,7 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - FhR-B9AUTdQg8vMAAASB, f87de44c84c0a3142649d9e626271bec
+      - FhS9ttDwyEhPdUoAAAFB, 594dd9239f89a371992f46eef06fa237
       Strict-Transport-Security:
       - max-age=15724800; includeSubDomains
     body:
@@ -93,5 +93,5 @@ http_interactions:
         a schema","enumValues":null,"fields":[{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"directives","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__Directive","ofType":null}}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"mutationType","type":{"kind":"OBJECT","name":"__Type","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"queryType","type":{"kind":"OBJECT","name":"__Type","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"subscriptionType","type":{"kind":"OBJECT","name":"__Type","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"types","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__Type","ofType":null}}}],"inputFields":null,"interfaces":[],"kind":"OBJECT","name":"__Schema","possibleTypes":null},{"description":"Represents
         scalars, interfaces, object types, unions, enums in the system","enumValues":null,"fields":[{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"description","type":{"kind":"SCALAR","name":"String","ofType":null}},{"args":[{"defaultValue":"false","description":null,"name":"includeDeprecated","type":{"kind":"SCALAR","name":"Boolean","ofType":null}}],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"enumValues","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__EnumValue","ofType":null}}},{"args":[{"defaultValue":"false","description":null,"name":"includeDeprecated","type":{"kind":"SCALAR","name":"Boolean","ofType":null}}],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"fields","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__Field","ofType":null}}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"inputFields","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__InputValue","ofType":null}}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"interfaces","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__Type","ofType":null}}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"kind","type":{"kind":"SCALAR","name":"String","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"name","type":{"kind":"SCALAR","name":"String","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"ofType","type":{"kind":"OBJECT","name":"__Type","ofType":null}},{"args":[],"deprecationReason":null,"description":null,"isDeprecated":false,"name":"possibleTypes","type":{"kind":"LIST","name":null,"ofType":{"kind":"OBJECT","name":"__Type","ofType":null}}}],"inputFields":null,"interfaces":[],"kind":"OBJECT","name":"__Type","possibleTypes":null}]}}}'
     http_version: null
-  recorded_at: Mon, 01 Jun 2020 18:12:20 GMT
+  recorded_at: Tue, 02 Jun 2020 13:39:21 GMT
 recorded_with: VCR 5.1.0
