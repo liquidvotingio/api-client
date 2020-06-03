@@ -54,6 +54,31 @@ module LiquidVotingApi
       end
     end
 
+    DeleteVoteMutation = CLIENT.parse <<-GRAPHQL
+      mutation($voter_email: String, $proposal_url: String!) {
+        deleteVote(participantEmail: $voter_email, proposalUrl: $proposal_url) {
+          participant {
+            email
+          }
+          votingResult {
+            yes
+            no
+          }
+        }
+      }
+    GRAPHQL
+
+    def self.delete_vote(proposal_url:, voter_email:)
+      variables = { proposal_url: proposal_url, voter_email: voter_email}
+      response = CLIENT.query(DeleteVoteMutation, variables: variables)
+
+      if response.errors.any?
+        raise response.errors[:data].join(", ")
+      else
+        response.data.delete_vote
+      end
+   end
+
     CreateDelegationMutation = CLIENT.parse <<-GRAPHQL
       mutation($proposal_url: String!, $delegator_email: String!, $delegate_email: String!) {
         createDelegation(proposalUrl: $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email) {
