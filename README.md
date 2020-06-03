@@ -33,4 +33,23 @@ vote.weight => 2
 vote.participant.email => "alice@email.com"
 vote.voting_result.yes => 2
 vote.voting_result.no => 0
+
+LiquidVotingApi::Client.delete_vote(
+  proposal_url: proposal_url,
+  voter_email: alice_email
+)
+=> deleted_vote
+deleted_vote.participant.email => "alice@email.com"
+deleted_vote.voting_result.yes => 0
+deleted_vote.voting_result.no => 0
+
+LiquidVotingApi::Client.delete_delegation(
+  proposal_url: proposal_url,
+  delegate_email: alice_email,
+  delegator_email: bob_email
+)
+=> deleted_delegation
+deleted_delegation.voting_result.yes => 0
+deleted_delegation.voting_result.no => 0
+
 ```
