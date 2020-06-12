@@ -27,8 +27,8 @@ module LiquidVotingApi
             email
           }
           votingResult {
-            yes
-            no
+            in_favor
+            against
           }
         }
       }
@@ -39,8 +39,8 @@ module LiquidVotingApi
     ## create_vote(yes: true, proposal_url: "https://my.decidim.com/proposal", voter_email: "alice@email.com")
     ## => vote
     ## vote.yes => true
-    ## vote.voting_result.yes => 1
-    ## vote.voting_result.no => 0
+    ## vote.voting_result.in_favor => 1
+    ## vote.voting_result.against => 0
     ##
     ## On failure it will raise an exception with the errors returned by the API
     def self.create_vote(yes:, proposal_url:, voter_email:)
@@ -61,8 +61,8 @@ module LiquidVotingApi
             email
           }
           votingResult {
-            yes
-            no
+            in_favor
+            against
           }
         }
       }
@@ -109,8 +109,8 @@ module LiquidVotingApi
       mutation($proposal_url: String!, $delegator_email: String!, $delegate_email: String!) {
         deleteDelegation(proposalUrl: $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email) {
           votingResult {
-            yes
-            no
+            in_favor
+            against
           }
         }
       }
@@ -121,8 +121,8 @@ module LiquidVotingApi
     ##
     ## delete_delegation(proposal_url: "https://my.decidim.com/proposal", delegator_email: "bob@email.com", delegate_email: "alice@email.com")
     ## => deleted_delegation
-    ## deleted_delegation.voting_result.yes => 0
-    ## deleted_delegation.voting_result.no => 0
+    ## deleted_delegation.voting_result.in_favor => 0
+    ## deleted_delegation.voting_result.against => 0
     ##
     ## On failure it will raise an exception with the errors returned by the API
     def self.delete_delegation(proposal_url:, delegator_email:, delegate_email:)

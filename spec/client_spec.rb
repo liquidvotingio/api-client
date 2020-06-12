@@ -17,8 +17,8 @@ describe LiquidVotingApi::Client do
         expect(vote.weight).to eql 1
         expect(vote.participant.email).to eql voter_email
 
-        expect(vote.voting_result.no).to eql 0
-        expect(vote.voting_result.yes).to eql 1
+        expect(vote.voting_result.against).to eql 0
+        expect(vote.voting_result.in_favor).to eql 1
       end
     end
   end
@@ -32,8 +32,8 @@ describe LiquidVotingApi::Client do
         vote = described_class.delete_vote(proposal_url: proposal_url, voter_email: voter_email)
 
         expect(vote.participant.email).to eql voter_email
-        expect(vote.voting_result.no).to eql 0
-        expect(vote.voting_result.yes).to eql 0
+        expect(vote.voting_result.against).to eql 0
+        expect(vote.voting_result.in_favor).to eql 0
       end
     end
   end
@@ -58,8 +58,8 @@ describe LiquidVotingApi::Client do
     it "returns updated result" do
       VCR.use_cassette('delete_delegation') do
         deleted_delegation = described_class.delete_delegation(proposal_url: "http://proposals.com/1", delegator_email: delegator_email, delegate_email: delegate_email)
-        expect(deleted_delegation.voting_result.no).to eql 0
-        expect(deleted_delegation.voting_result.yes).to eql 0
+        expect(deleted_delegation.voting_result.against).to eql 0
+        expect(deleted_delegation.voting_result.in_favor).to eql 0
       end
     end
   end

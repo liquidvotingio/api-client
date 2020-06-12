@@ -8,7 +8,7 @@ http_interactions:
       string: '{"query":"mutation LiquidVotingApi__Client__DeleteDelegationMutation($proposal_url:
         String!, $delegator_email: String!, $delegate_email: String!) {\n  deleteDelegation(proposalUrl:
         $proposal_url, delegatorEmail: $delegator_email, delegateEmail: $delegate_email)
-        {\n    votingResult {\n      yes\n      no\n    }\n  }\n}","variables":{"proposal_url":"http://proposals.com/1","delegator_email":"bob@test.com","delegate_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__DeleteDelegationMutation"}'
+        {\n    votingResult {\n      in_favor\n      against\n    }\n  }\n}","variables":{"proposal_url":"http://proposals.com/1","delegator_email":"bob@test.com","delegate_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__DeleteDelegationMutation"}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -43,7 +43,7 @@ http_interactions:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"data":{"deleteDelegation":{"votingResult":{"no":0,"yes":0}}}}'
+      string: '{"data":{"deleteDelegation":{"votingResult":{"against":0,"in_favor":0}}}}'
     http_version: null
   recorded_at: Tue, 02 Jun 2020 13:42:52 GMT
 recorded_with: VCR 5.1.0

@@ -8,7 +8,7 @@ http_interactions:
       string: '{"query":"mutation LiquidVotingApi__Client__CreateVoteMutation($voter_email:
         String, $proposal_url: String!, $yes: Boolean!) {\n  createVote(participantEmail:
         $voter_email, proposalUrl: $proposal_url, yes: $yes) {\n    yes\n    weight\n    participant
-        {\n      email\n    }\n    votingResult {\n      yes\n      no\n    }\n  }\n}","variables":{"yes":true,"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__CreateVoteMutation"}'
+        {\n      email\n    }\n    votingResult {\n      in_favor\n      against\n    }\n  }\n}","variables":{"yes":true,"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__CreateVoteMutation"}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -43,7 +43,7 @@ http_interactions:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"data":{"createVote":{"participant":{"email":"alice@test.com"},"votingResult":{"no":0,"yes":1},"weight":1,"yes":true}}}'
+      string: '{"data":{"createVote":{"participant":{"email":"alice@test.com"},"votingResult":{"against":0,"in_favor":1},"weight":1,"yes":true}}}'
     http_version: null
   recorded_at: Tue, 02 Jun 2020 13:39:21 GMT
 recorded_with: VCR 5.1.0
