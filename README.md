@@ -31,8 +31,8 @@ LiquidVotingApi::Client.create_vote(
 vote.yes => true
 vote.weight => 2
 vote.participant.email => "alice@email.com"
-vote.voting_result.yes => 2
-vote.voting_result.no => 0
+vote.voting_result.in_favor => 2
+vote.voting_result.against => 0
 
 LiquidVotingApi::Client.delete_vote(
   proposal_url: proposal_url,
@@ -40,8 +40,8 @@ LiquidVotingApi::Client.delete_vote(
 )
 => deleted_vote
 deleted_vote.participant.email => "alice@email.com"
-deleted_vote.voting_result.yes => 0
-deleted_vote.voting_result.no => 0
+deleted_vote.voting_result.in_favor => 0
+deleted_vote.voting_result.against => 0
 
 LiquidVotingApi::Client.delete_delegation(
   proposal_url: proposal_url,
@@ -49,7 +49,7 @@ LiquidVotingApi::Client.delete_delegation(
   delegator_email: bob_email
 )
 => deleted_delegation
-deleted_delegation.voting_result.yes => 0
-deleted_delegation.voting_result.no => 0
+deleted_delegation.voting_result.in_favor => 0
+deleted_delegation.voting_result.against => 0
 
 ```

@@ -8,7 +8,7 @@ http_interactions:
       string: '{"query":"mutation LiquidVotingApi__Client__DeleteVoteMutation($voter_email:
         String, $proposal_url: String!) {\n  deleteVote(participantEmail: $voter_email,
         proposalUrl: $proposal_url) {\n    participant {\n      email\n    }\n    votingResult
-        {\n      yes\n      no\n    }\n  }\n}","variables":{"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__DeleteVoteMutation"}'
+        {\n      in_favor\n      against\n    }\n  }\n}","variables":{"proposal_url":"http://proposals.com/1","voter_email":"alice@test.com"},"operationName":"LiquidVotingApi__Client__DeleteVoteMutation"}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -43,7 +43,7 @@ http_interactions:
       - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"data":{"deleteVote":{"participant":{"email":"alice@test.com"},"votingResult":{"no":0,"yes":0}}}}'
+      string: '{"data":{"deleteVote":{"participant":{"email":"alice@test.com"},"votingResult":{"against":0,"in_favor":0}}}}'
     http_version: null
   recorded_at: Wed, 03 Jun 2020 13:47:34 GMT
 recorded_with: VCR 5.1.0
